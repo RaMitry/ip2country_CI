@@ -13,6 +13,8 @@ we get appropriate country name via countries_names.json file (file has been got
 As reserve and for result check purposes two additional free APIs ar used:
 geoip.nekudo.com and freegeoip.net.
 
+The initial IP address is got by using geolocation APIs too.
+
 To use database query in library the library line in config/autoload.php file was changed to
 $autoload['libraries'] = array('database');
 

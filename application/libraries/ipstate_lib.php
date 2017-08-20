@@ -2,9 +2,7 @@
 
 class Ipstate_lib {
 
-    protected $ip_address;
-    protected $country;
-    protected $country_name;
+    protected $countryname;
 
     /**
      * In getCountryName() method we are trying to get country name with ip,
@@ -25,7 +23,8 @@ class Ipstate_lib {
 
         if ($country) {
 
-            return $country;
+            $this->countryname = $country;
+            return $this->countryname;
 
         } else {
 
@@ -34,7 +33,8 @@ class Ipstate_lib {
 
             if ($country) {
 
-                return $country;
+                $this->countryname = $country;
+                return $this->countryname;
 
             } else {
 
@@ -43,7 +43,8 @@ class Ipstate_lib {
 
                 if($country) {
 
-                    return $country;
+                    $this->countryname = $country;
+                    return $this->countryname;
 
                 } else {
 

@@ -174,19 +174,25 @@ class Ipstate_lib {
 
     public function getCountryFromDb($ip_address)
     {
-
         //Check the IP version
         if (filter_var($ip_address,FILTER_VALIDATE_IP)) {
+
             $dbname = "ip2location_db1";
+
+            //Converts a string containing an (IPv4) Internet Protocol dotted address into a long integer
+            $ip_address = ip2long($ip_address);
+
         } elseif(filter_var($ip_address, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+
             $dbname = "ip2location_db1_ipv6";
+
+            //Convert IP address to its corresponding 32–bit decimal number
+            $ip_address = $this->ipAddressToIpNumber($ip_address);
+
         } else {
             return false;
         }
-
-        //Leave only numbers in IP address
-        $ip_address = (int)preg_replace('/[^0-9]/', '', $ip_address);
-
+        
         $CI =&get_instance();
 
         $CI->db->where('ip_from <=', $ip_address);
@@ -227,4 +233,24 @@ class Ipstate_lib {
         }
 
     }
+    
+    
+    /**
+     * We use ipAddressToIpNumber() method to convert ipv6 address string to number.
+     *
+     * @access	public
+     * @param	string
+     * @return	integer
+     */
+
+    public function ipAddressToIpNumber($ip_address) {
+        $pton = @inet_pton($ip_address);
+        if (!$pton) { return false; }
+        $number = '';
+        foreach (unpack('C*', $pton) as $byte) {
+            $number .= str_pad(decbin($byte), 8, '0', STR_PAD_LEFT);
+        }
+        return base_convert(ltrim($number, '0'), 2, 10);
+    }
+    
 }

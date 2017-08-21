@@ -3,6 +3,7 @@
 class Ipstate_lib {
 
     protected $countryname;
+    
 
     /**
      * In getCountryName() method we are trying to get country name with ip,
@@ -13,7 +14,6 @@ class Ipstate_lib {
      * @param	string
      * @return	string
      */
-
 
     public function getCountryName($ip_address)
     {
@@ -54,6 +54,7 @@ class Ipstate_lib {
         }
 
     }
+    
 
     /**
      * In getIpToCountry() method we firstly get country two-character code via ipinfo.io API
@@ -64,7 +65,6 @@ class Ipstate_lib {
      * @param	string
      * @return	string
      */
-
 
     public function getIpToCountry($ip_address)
     {
@@ -157,6 +157,7 @@ class Ipstate_lib {
         }
 
     }
+    
 
     /**
      * In getCountryFromDb() method we search the country name

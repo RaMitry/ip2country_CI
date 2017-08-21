@@ -1,5 +1,5 @@
 # ip2country_CI
-Test task of converting IP to country name using Codeigniter
+Library for converting IP to country name using Codeigniter
 
 The task is solved both by using free geolocation APIs and by using databases.
 

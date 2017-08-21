@@ -16,4 +16,4 @@ The initial IP address is got by using geolocation APIs too.
 To use database query in library the library line in config/autoload.php file was changed to
 $autoload['libraries'] = array('database');
 
-Methods descriptions and some comments was added into the code.
+Methods descriptions and some comments were added into the code.

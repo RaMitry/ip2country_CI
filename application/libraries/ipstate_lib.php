@@ -59,6 +59,7 @@ class Ipstate_lib {
     /**
      * In getIpToCountry() method we firstly get country two-character code via ipinfo.io API
      * and then get appropriate country name via countries_names.json.
+     * Of course, instead of JSON-file the array can be used - its just to show another variant.
      * We check the result via checkIpResult() method.
      *
      * @access	public
